@@ -11,6 +11,9 @@ public class exercicios2804 {
 		
 		//Existe Letra
 		System.out.printf("Existe a letra que você digitou? " + procuraLetra('D'));
+		
+		// Imprime Frase
+		imprimeFrase("Ultra");
 	}
 
 	static void somaValores(double valor01, double valor02){
@@ -41,4 +44,14 @@ public class exercicios2804 {
 		}
 		return existeLetra;
 	}
+	
+	
+	static String fraseInicial = "\nEste programa foi desenvolvido pelo grupo "; 
+	static String fraseFinal = ". Todos os direitos reservados - Copyright. Obrigado por utilizá-lo!"; 
+
+	static void imprimeFrase(String nomeGrupo){
+		
+		System.out.println(fraseInicial + nomeGrupo + fraseFinal );
+	}
+	
 }
