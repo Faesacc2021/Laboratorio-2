@@ -8,6 +8,9 @@ public class exercicios2804 {
 		//Altura Ideal
 		alturaIdeal(1.8, 'M');
 		alturaIdeal(1.6, 'F');
+		
+		//Existe Letra
+		System.out.printf("Existe a letra que você digitou? " + procuraLetra('D'));
 	}
 
 	static void somaValores(double valor01, double valor02){
@@ -20,11 +23,22 @@ public class exercicios2804 {
 		
 		if (sexo == 'M'){
 			resultado = (72.7 * altura) - 58;
-			System.out.printf("A altura ideal para um Homen de:" + altura + "m é : %2f \n", resultado );
+			System.out.printf("A altura ideal para um Homen de:" + altura + "m é : %.2f \n", resultado );
 		}
 		if (sexo == 'F'){
 			resultado = (62.1 * altura) - 47.7;
-			System.out.printf("A altura ideal para um Mulher de:" + altura + "m é: %2f \n", resultado );
+			System.out.printf("A altura ideal para um Mulher de:" + altura + "m é: %.2f \n", resultado );
 		}
+	}
+	
+	static char letras[] = {'A','B','C','D','E'};
+	static boolean procuraLetra(char letra){
+		boolean existeLetra = false;
+		for (int i = 0; i < 4; i ++){
+			if (letras[i] == letra){
+				existeLetra = true;
+			}
+		}
+		return existeLetra;
 	}
 }
