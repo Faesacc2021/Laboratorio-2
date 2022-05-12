@@ -22,4 +22,13 @@ public class Circulo {
 		return "Circulo [ponto=" + ponto + ", raio=" + raio + "]";
 	}
 	
+	public static double areaRetangulo(Ponto ponto, double raio){
+		double area = Math.PI * (raio * raio);
+		return area;
+	}
+	
+	public static double perimetroRetangulo(Ponto ponto, double raio){
+		double perimetro = 2 * Math.PI *  raio; 
+		return perimetro;
+	}
 }
