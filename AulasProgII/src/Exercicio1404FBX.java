@@ -18,6 +18,7 @@ public class Exercicio1404FBX {
 		int idadeAluno = retornaIdade.retornaIdade(alunosAprovados);
 		System.out.println("====> " + idadeAluno);
 		System.out.println("====> " + alunosAprovados.getTelefone());
+		ler.close();
 	}
 	
 	public static void imprimeAluno(AlunoAprovados alunosAprovados){

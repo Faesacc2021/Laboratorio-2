@@ -121,6 +121,7 @@ public class MetodoBolhaLinear {
             }
 
         }
+        meuTeclado.close();
     }
 }
 
