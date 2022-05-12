@@ -28,4 +28,17 @@ public class Retangulo {
 		return "Retangulo [ponto=" + ponto + ", base=" + base + ", altura="
 				+ altura + "]";
 	}
+	
+	public static double areaRetangulo(Ponto ponto, double base, double altura){
+	
+		double area = 0.0;
+		area = base * altura;
+		return area;
+	}
+	
+	public static double perimetroRetangulo(Ponto ponto, double base, double altura){
+		double perimetro = 0.0;
+		perimetro = (base * 2) + (altura * 2);
+		return perimetro;
+	}
 }
