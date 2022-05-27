@@ -1,8 +1,6 @@
 import java.util.ArrayList;
-import java.util.Vector;
 
 import classes.Aluno;
-
 
 public class VetorAluno {
 

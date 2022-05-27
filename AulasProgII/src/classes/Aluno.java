@@ -11,6 +11,7 @@ public class Aluno {
 	public void setIdAluno(int idAluno) {
 		this.idAluno = idAluno;
 	}
+	
 	public String getNameAluno() {
 		return nameAluno;
 	}
