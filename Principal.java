@@ -52,7 +52,32 @@ public class Principal {
 	}
 
 	private static void cadastrarAluno() {
+		Pauta pauta = new Pauta(0, null, 0, 0, 0);
+		int matricula;
+		String nomeAlulno;
+		int	numFalta;
+		double	nota1; 
+		double	nota2;
+
+		System.out.println("Digite a Matrícula do Aluno: ");
+		matricula = ler.nextInt();
+		pauta.setMatricula(matricula);
 		
+		System.out.println("Digite o Nome do Aluno: ");
+		nomeAlulno = ler.next();
+		pauta.setNomeAlulno(nomeAlulno);
+
+		System.out.println("Digite o Número de Faltas do Aluno: ");
+		numFalta = ler.nextInt();
+		pauta.setNumFalta(numFalta);
+		
+		System.out.println("Digite a Nota 01 do Aluno: ");
+		nota1 = ler.nextDouble();
+		pauta.setNota1(nota1);
+		
+		System.out.println("Digite a Nota 02 do Aluno: ");
+		nota2 = ler.nextDouble();
+		pauta.setNota2(nota2);
 	}
 
 	private static void mostrarTodosDados() {
