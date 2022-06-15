@@ -41,6 +41,7 @@ public class PrincipalEmpresa {
                     break;
                 case 2:
                     excluirVendedor();
+                    break;
                 case 3:
                     consultaTipo();
                     break;
