@@ -64,9 +64,8 @@ public class PrincipalFilme {
         System.out.println("Digite o Gênero do Filme: ");
         filme.setGeneroFilme(ler.next());
 
-        filme.setCodigoFilme(autoIncrement);
-
         autoIncrement = autoIncrement + 1;
+        filme.setCodigoFilme(autoIncrement);
         Filme.filme[autoIncrement] = filme;
     }
 
