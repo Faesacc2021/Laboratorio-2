@@ -56,7 +56,8 @@ public class ProfessorRotinas {
             System.out.println("1 - Incluir");
             System.out.println("2 - Alterar");
             System.out.println("3 - Excluir");
-            System.out.println("4 - Listar");
+            System.out.println("4 - Consultar");
+            System.out.println("5 - Listar Todos");
             System.out.println("0 - Voltar para menu principal");
             entrada = lerTeclado.next();
 
@@ -71,7 +72,8 @@ public class ProfessorRotinas {
                     try {
                         ProfessorFiles.gravaProfessor(professores);
                     } catch (IOException e) {
-                        continue;
+                        System.out.println("Não foi possível gravar o arquivo de professores");
+                        System.exit(0);
                     }
                     continuar = 0;
                     break;
@@ -79,11 +81,15 @@ public class ProfessorRotinas {
                     entradaProfessor();
                     break;
                 case 2:
-                    //();
+                    alteraProfessor();
                     break;
                 case 3:
-//                       cadastroTurmas();
+                    excluiProfessor();
+                    break;
                 case 4:
+                    consultaProfessor();
+                    break;
+                case 5:
                     listaProfessores();
                     break;
                 default:
@@ -131,17 +137,149 @@ public class ProfessorRotinas {
         }
     }
 
+
+    static void consultaProfessor() {
+        String matricula = "";
+        int saida = 777;
+        boolean encontrou = false;
+
+        while (saida != 0) {
+            System.out.println("Digite a Marícula que deseja consultar");
+            matricula = lerTeclado.next();
+
+            try {
+                Integer.parseInt(matricula);
+                saida = 0;
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Marícula deve ser numérica!");
+                continue;
+            }
+        }
+
+        for (int index = 0; index < professores.size(); index++){
+            if (professores.get(index).getMatricula() == Integer.parseInt(matricula)) {
+                System.out.println("\n*********************************************");
+                imprimeProfessor(professores.get(index));
+                System.out.println("*********************************************\n");
+                encontrou = true;
+                break;
+            }
+        }
+        if (!encontrou) {
+            System.out.println("Professor não encontrado!\n");
+        }
+    }
+
+    static void alteraProfessor() {
+        String matricula = "";
+        int saida = 777;
+        boolean encontrou = false;
+
+        while (saida != 0) {
+            System.out.println("Digite a Marícula que deseja Alterar");
+            matricula = lerTeclado.next();
+
+            try {
+                Integer.parseInt(matricula);
+                saida = 0;
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Marícula deve ser numérica!");
+                continue;
+            }
+        }
+
+        for (int index = 0; index < professores.size(); index++){
+            if (professores.get(index).getMatricula() == Integer.parseInt(matricula)) {
+                System.out.println("\n*********************************************");
+                imprimeProfessor(professores.get(index));
+                System.out.println("*********************************************\n");
+                encontrou = true;
+                entrarNovosDados(index);
+                break;
+            }
+        }
+        if (!encontrou) {
+            System.out.println("Professor não encontrado!\n");
+        }
+    }
+
+    static void entrarNovosDados(int index) {
+        String nome = "";
+        String endereco = "";
+        String setor = "";
+        String data = "";
+        lerTeclado.nextLine();
+
+        System.out.println("Nome Completo: ");
+        nome = lerTeclado.nextLine();
+
+        System.out.println("Endereço:");
+        endereco = lerTeclado.nextLine();
+
+        System.out.println("Setor: ");
+        setor = lerTeclado.nextLine();
+
+        System.out.println("Data: ");
+        data = lerTeclado.nextLine();
+        professores.get(index).setNome(nome);
+        professores.get(index).setEndereco(endereco);
+        professores.get(index).setSetor(setor);
+        professores.get(index).setData(data);
+        System.out.println("\nProfessor Alterado com sucesso!\n");
+    }
+
+    static void excluiProfessor() {
+        String matricula = "";
+        int saida = 777;
+        boolean encontrou = false;
+
+        while (saida != 0) {
+            System.out.println("Digite a Marícula que deseja Excluir");
+            matricula = lerTeclado.next();
+
+            try {
+                Integer.parseInt(matricula);
+                saida = 0;
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Marícula deve ser numérica!");
+                continue;
+            }
+        }
+
+        for (int index = 0; index < professores.size(); index++) {
+            if (professores.get(index).getMatricula() == Integer.parseInt(matricula)) {
+                System.out.println("\n*********************************************");
+                imprimeProfessor(professores.get(index));
+                System.out.println("*********************************************\n");
+                encontrou = true;
+                professores.remove(index);
+                System.out.println("Professor Excluido com sucesso!");
+                break;
+            }
+        }
+        if (!encontrou) {
+            System.out.println("Professor não encontrado!\n");
+        }
+    }
+
     static void listaProfessores() {
         int index = 0;
         System.out.println("\n*********************************************");
         while (index < professores.size() ) {
-            System.out.println("\nMatrícula: " + professores.get(index).getMatricula());
-            System.out.println("Nome Completo: " + professores.get(index).getNome());
-            System.out.println("Endereço: " + professores.get(index).getEndereco());
-            System.out.println("Setor: " + professores.get(index).getSetor());
-            System.out.println("Data: " + professores.get(index).getData());
+            imprimeProfessor(professores.get(index));
             index = index + 1;
         }
-        System.out.println("*********************************************\n\n");
+        System.out.print("*********************************************\n");
+    }
+
+    static void imprimeProfessor(Professor professor) {
+        System.out.println("Matrícula: " + professor.getMatricula());
+        System.out.println("Nome Completo: " + professor.getNome());
+        System.out.println("Endereço: " + professor.getEndereco());
+        System.out.println("Setor: " + professor.getSetor());
+        System.out.println("Data: " + professor.getData() + "\n");
     }
 }
