@@ -1,5 +1,3 @@
-package aplicacao;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class Arvore {
         return this.quantNos;
     }
 
-    //inserir um novo nó na arvore. Sempre insere em um atributo que seja igual a null
+    //inserir um novo nï¿½ na arvore. Sempre insere em um atributo que seja igual a null
     public boolean inserir (Cliente elem){
         if (pesquisar (elem.getNomeCliente())){
             return false;
@@ -50,7 +48,7 @@ public class Arvore {
         }
     }
 
-    //Pesquisa se um determinado valor está na árvore
+    //Pesquisa se um determinado valor estï¿½ na ï¿½rvore
     public boolean pesquisar (String nome){
         if (pesquisar (nome, this.raiz)!= null){
             return true;
@@ -84,8 +82,8 @@ public class Arvore {
         return no;
     }
 
-    //remove um determinado nó procurando pela chave. O nó pode estar em qualquer
-    //posição na árvore
+    //remove um determinado nï¿½ procurando pela chave. O nï¿½ pode estar em qualquer
+    //posiï¿½ï¿½o na ï¿½rvore
     public boolean remover (String nome){
         if (pesquisar (nome, this.raiz) != null){
             this.raiz = remover (nome, this.raiz);
@@ -187,7 +185,7 @@ public class Arvore {
         return vetResultado;
     }
 
-    //caminhamento pré-fixado
+    //caminhamento prï¿½-fixado
     public Cliente [] CamPreFixado (){
         int []n= new int[1];
         n[0]=0;
@@ -203,7 +201,7 @@ public class Arvore {
         }
         return vet;
     }
-    //caminhamento pós-fixado
+    //caminhamento pï¿½s-fixado
     public Cliente [] CamPosFixado (){
         int []n= new int[1];
         n[0]=0;

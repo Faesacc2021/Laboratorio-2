@@ -1,7 +1,5 @@
-package aplicacao;
-
 public class NoArv {
-    private Cliente info; // o tipo Item está declarado no capítulo 1
+    private Cliente info; // o tipo Item estï¿½ declarado no capï¿½tulo 1
     private NoArv esq, dir;
     public NoArv(Cliente elem){
         this.info = elem;

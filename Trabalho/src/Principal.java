@@ -1,15 +1,14 @@
-package aplicacao;
-
-import util.Arrays;
-import util.List;
-import util.Scanner;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 public class Principal {
     public static Scanner entrada = new Scanner(System.in);
     public static Arvore arvore = new Arvore();
     public static String[] nomes;
     public static void main(String[] args) {
-        System.out.println("====== Sistema do banco ======");
+        System.out.println("====== Sistema do banco ======" +
+                "");
         int numero = 0;
         String senha = "";
 
@@ -129,6 +128,24 @@ public class Principal {
 
     public static void clienteMaiorSaldo () {
 
+        if (arvore.getQuantNos() == 0) {
+            System.out.println("Não há Clientes para consultar!");
+        } else {
+            int index = 0;
+            double maiorSaldo = 0;
+            String nomeCliente = "";
+
+            Cliente[] resultado = arvore.CamCentral();
+            while ( index < resultado.length ) {
+                if (resultado[index].getSaldoCliente() > maiorSaldo) {
+                    maiorSaldo = resultado[index].getSaldoCliente();
+                    nomeCliente = resultado[index].getNomeCliente();
+                }
+                index = index + 1;
+            }
+            System.out.println("O cliente com maior saldo é      o " + nomeCliente);
+            System.out.printf("Seu saldo atuar é de R$ %.2f", maiorSaldo);
+        }
     }
 
     static boolean verificaCliente (String nome) {
