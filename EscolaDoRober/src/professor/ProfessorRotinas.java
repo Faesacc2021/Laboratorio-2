@@ -1,3 +1,7 @@
+package professor;
+
+import professor.ProfessorFiles;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,33 +16,7 @@ public class ProfessorRotinas {
         professores.add(professor);
     }
 
-    public void excluirProfessor(Professor professor) {
-        professores.remove(professor);
-    }
-
-    public Professor getProfessor(int matricula) {
-        Professor professor = new Professor();
-        for (int i = 0; i < professores.size(); i++) {
-            if (professores.get(i).getMatricula() == matricula) {
-                professor = professores.get(i);
-                return professor;
-            }
-        }
-        return professor;
-    }
-
-    public boolean alteraProfessor(Professor professor) {
-        int matricula = professor.getMatricula();
-        for (int i = 0; i < professores.size(); i++) {
-            if (professores.get(i).getMatricula() == matricula) {
-                professores.set(i, professores.get(i));
-                return true;
-            }
-        }
-        return false;
-    }
-
-    static void menuProfessor() {
+    public static void menuProfessor() {
         String entrada = "";
         int continuar = 1;
         int valorMenu = 0;
@@ -133,7 +111,7 @@ public class ProfessorRotinas {
             professor.setSetor(setor);
             professor.setData(data);
             incluirProfessor(professor);
-            System.out.println("\n\nProfessor inserido com sucesso!");
+            System.out.println("\n\nprofessor.Professor inserido com sucesso!");
         }
     }
 
@@ -167,7 +145,7 @@ public class ProfessorRotinas {
             }
         }
         if (!encontrou) {
-            System.out.println("Professor não encontrado!\n");
+            System.out.println("professor.Professor não encontrado!\n");
         }
     }
 
@@ -201,7 +179,7 @@ public class ProfessorRotinas {
             }
         }
         if (!encontrou) {
-            System.out.println("Professor não encontrado!\n");
+            System.out.println("professor.Professor não encontrado!\n");
         }
     }
 
@@ -227,7 +205,7 @@ public class ProfessorRotinas {
         professores.get(index).setEndereco(endereco);
         professores.get(index).setSetor(setor);
         professores.get(index).setData(data);
-        System.out.println("\nProfessor Alterado com sucesso!\n");
+        System.out.println("\nprofessor.Professor Alterado com sucesso!\n");
     }
 
     static void excluiProfessor() {
@@ -256,12 +234,12 @@ public class ProfessorRotinas {
                 System.out.println("*********************************************\n");
                 encontrou = true;
                 professores.remove(index);
-                System.out.println("Professor Excluido com sucesso!");
+                System.out.println("professor.Professor Excluido com sucesso!");
                 break;
             }
         }
         if (!encontrou) {
-            System.out.println("Professor não encontrado!\n");
+            System.out.println("professor.Professor não encontrado!\n");
         }
     }
 

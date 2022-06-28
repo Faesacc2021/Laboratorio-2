@@ -1,4 +1,5 @@
-import java.io.File;
+package professor;
+import filePath.PathFilesTxt;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,10 +8,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ProfessorFiles {
 
-    static ArrayList<Professor> professores = new ArrayList<Professor>();
-    static Path path = Paths.get(PathFilesTxt.pathFilesTxt + "professores.txt");
+        static ArrayList<Professor> professores = new ArrayList<Professor>();
+    static Path path = Paths.get( PathFilesTxt.pathFilesTxt + "professores.txt");
 
     public static ArrayList<Professor> readProfessor() throws IOException {
         List<String> linhas = Files.readAllLines(path);

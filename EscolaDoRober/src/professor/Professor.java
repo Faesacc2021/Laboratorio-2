@@ -1,3 +1,5 @@
+package professor;
+
 public class Professor {
 	private int matricula;
 	private String nome,endereco,setor,data;
@@ -10,6 +12,7 @@ public class Professor {
 		this.setor = "";
 		this.data = "";
 	}
+
 	public Professor(int matricula, String nome, String endereco, String setor, String data) {
 		super();
 		this.matricula = matricula;

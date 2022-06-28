@@ -1,4 +1,7 @@
-import java.io.IOException;
+import professor.ProfessorRotinas;
+import turma.Turma;
+import turma.TurmaRotinas;
+
 import java.util.Scanner;
 
 public class PrincipalMenu {
@@ -73,11 +76,12 @@ public class PrincipalMenu {
                         continuar = 0;
                         break;
                     case 1:
-                        ProfessorRotinas.menuProfessor(); ;
+                        ProfessorRotinas.menuProfessor();
                         break;
                     case 2:
                         break;
                     case 3:
+                        TurmaRotinas.menuTurma();
                         break;
                     default:
                         System.out.println("Opção Inválida!" );
@@ -95,7 +99,7 @@ public class PrincipalMenu {
 
                 System.out.println("O que deseja fazer");
                 System.out.println("1 - Trocar Aluno de Turma");
-                System.out.println("2 - Trocar Professor de Turma");
+                System.out.println("2 - Trocar professor.Professor de Turma");
                 System.out.println("0 - Voltar para menu principal");
                 entrada = lerTeclado.next();
 
