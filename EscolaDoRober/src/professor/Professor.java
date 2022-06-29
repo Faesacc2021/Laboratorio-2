@@ -2,7 +2,10 @@ package professor;
 
 public class Professor {
 	private int matricula;
-	private String nome,endereco,setor,data;
+	private String nome;
+	private String endereco;
+	private String setor;
+	private String data;
 
 	public Professor() {
 		super();

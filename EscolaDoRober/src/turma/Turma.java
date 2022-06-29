@@ -2,9 +2,9 @@ package turma;
 
 public class Turma {
 
-    int idTurma;
-    String nomeTurma;
-    String siglaTurma;
+    private int idTurma;
+    private String nomeTurma;
+    private String siglaTurma;
 
     public Turma() {
         super();

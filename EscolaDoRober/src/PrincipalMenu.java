@@ -1,3 +1,4 @@
+import aluno.AlunosRotinas;
 import professor.ProfessorRotinas;
 import turma.Turma;
 import turma.TurmaRotinas;
@@ -48,8 +49,6 @@ public class PrincipalMenu {
                         System.out.println("Opção Inválida!" );
                 }
             }
-
-
         }
 
         private static void menuCadastros() {
@@ -79,6 +78,7 @@ public class PrincipalMenu {
                         ProfessorRotinas.menuProfessor();
                         break;
                     case 2:
+                        AlunosRotinas.menuAluno();
                         break;
                     case 3:
                         TurmaRotinas.menuTurma();
@@ -98,8 +98,8 @@ public class PrincipalMenu {
             while (continuar != 0) {
 
                 System.out.println("O que deseja fazer");
-                System.out.println("1 - Trocar Aluno de Turma");
-                System.out.println("2 - Trocar professor.Professor de Turma");
+                System.out.println("1 - Definir Turma do Aluno");
+                System.out.println("2 - Definir Turmas do Professor");
                 System.out.println("0 - Voltar para menu principal");
                 entrada = lerTeclado.next();
 
@@ -122,8 +122,6 @@ public class PrincipalMenu {
                         System.out.println("Opção Inválida!" );
                 }
             }
-
-
         }
     
         private static void menuRelatorios() {

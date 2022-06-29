@@ -22,6 +22,7 @@ public class ProfessorRotinas {
         int valorMenu = 0;
 
         try {
+            professores.clear();
             professores = ProfessorFiles.readProfessor();
         } catch (IOException e) {
             System.out.println("Não foi possível carregar o arquivo de professores");
@@ -36,7 +37,7 @@ public class ProfessorRotinas {
             System.out.println("3 - Excluir");
             System.out.println("4 - Consultar");
             System.out.println("5 - Listar Todos");
-            System.out.println("0 - Voltar para menu principal");
+            System.out.println("0 - Voltar para menu de Cadastros");
             entrada = lerTeclado.next();
 
             try {

@@ -1,34 +1,36 @@
-package turma;
+package aluno;
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TurmaRotinas {
+public class AlunosRotinas {
 
-    static ArrayList<Turma> turmas = new ArrayList<Turma>();
+    static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
     static Scanner lerTeclado = new Scanner(System.in);
 
-    static void incluirTurma(Turma turma) {
-        turma.setIdTurma(turmas.size() + 1);
-        turmas.add(turma);
+    static void incluirAluno(Aluno aluno) {
+        aluno.setIdAluno(alunos.size() + 1);
+        alunos.add(aluno);
     }
 
-    public static void menuTurma() {
+    public static void menuAluno() {
         String entrada = "";
         int continuar = 1;
         int valorMenu = 0;
 
         try {
-            turmas.clear();
-            turmas = TurmaFiles.readTurma();
+            alunos.clear();
+            alunos = AlunoFiles.readAluno();
         } catch (IOException e) {
-            System.out.println("Não foi possível carregar o arquivo de turmas");
+            System.out.println("Não foi possível carregar o arquivo de alunos");
             continuar = 1;
         }
 
         while (continuar != 0) {
 
-            System.out.println("Menu Turma");
+            System.out.println("Menu Aluno");
             System.out.println("1 - Incluir");
             System.out.println("2 - Alterar");
             System.out.println("3 - Excluir");
@@ -46,27 +48,27 @@ public class TurmaRotinas {
             switch (valorMenu) {
                 case 0:
                     try {
-                        TurmaFiles.gravaTurma(turmas);
+                        AlunoFiles.gravaAluno(alunos);
                     } catch (IOException e) {
-                        System.out.println("Não foi possível gravar o arquivo de turmas");
+                        System.out.println("Não foi possível gravar o arquivo de alunos");
                         System.exit(0);
                     }
                     continuar = 0;
                     break;
                 case 1:
-                    entradaTurma();
+                    entradaAluno();
                     break;
                 case 2:
-                    alteraTurma();
+                    alteraAluno();
                     break;
                 case 3:
-                    excluiTurma();
+                    excluiAluno();
                     break;
                 case 4:
-                    consultaTurma();
+                    consultaAluno();
                     break;
                 case 5:
-                    listaTurmas();
+                    listaAlunos();
                     break;
                 default:
                     System.out.println("Opção Inválida!");
@@ -75,16 +77,16 @@ public class TurmaRotinas {
 
     }
 
-    static void entradaTurma() {
+    static void entradaAluno() {
         String nome = "";
-        String sigla = "";
+        String cpf = "";
 
         int sair = 777;
         lerTeclado.nextLine();
 
         while (sair != 0) {
             System.out.print("Tecle <Enter> no campo nome para sair.\n");
-            System.out.println("Nome da Turma: ");
+            System.out.println("Nome da Aluno: ");
             nome = lerTeclado.nextLine();
 
             if (nome.equals("")) {
@@ -92,30 +94,31 @@ public class TurmaRotinas {
                 break;
             }
 
-            System.out.println("Sigla:");
-            sigla = lerTeclado.nextLine();
+            System.out.println("CPF:");
+            cpf = lerTeclado.nextLine();
 
-            if (sigla.length() > 3) {
-                System.out.println("Sigla não deve ser maior do que três caracteres ");
+            try {
+                Long.parseLong(cpf);
+            } catch (NumberFormatException e) {
+                System.out.println("CPF deve conter apenas números");
                 continue;
             }
 
-            Turma turma = new Turma();
-            turma.setNomeTurma(nome);
-            turma.setSiglaTurma(sigla.toUpperCase());
-            incluirTurma(turma);
-            System.out.println("\n\nTurma inserida com sucesso!");
+            Aluno aluno = new Aluno();
+            aluno.setNome(nome);
+            aluno.setCpf(cpf.toUpperCase());
+            incluirAluno(aluno);
+            System.out.println("\n\nAluno inserido com sucesso!");
         }
     }
 
-
-    static void consultaTurma() {
+    static void consultaAluno() {
         String matricula = "";
         int saida = 777;
         boolean encontrou = false;
 
         while (saida != 0) {
-            System.out.println("Digite o ID da turma que deseja consultar");
+            System.out.println("Digite o ID da aluno que deseja consultar");
             matricula = lerTeclado.next();
 
             try {
@@ -128,31 +131,31 @@ public class TurmaRotinas {
             }
         }
 
-        for (int index = 0; index < turmas.size(); index++) {
-            if (turmas.get(index).getIdTurma() == Integer.parseInt(matricula)) {
+        for (int index = 0; index < alunos.size(); index++) {
+            if (alunos.get(index).getIdAluno() == Integer.parseInt(matricula)) {
                 System.out.println("\n*********************************************");
-                imprimeTurma(turmas.get(index));
+                imprimeAluno(alunos.get(index));
                 System.out.println("*********************************************\n");
                 encontrou = true;
                 break;
             }
         }
         if (!encontrou) {
-            System.out.println("Turma não encontrada!\n");
+            System.out.println("Aluno não encontrado!\n");
         }
     }
 
-    static void alteraTurma() {
-        String idTurma = "";
+    static void alteraAluno() {
+        String idAluno = "";
         int saida = 777;
         boolean encontrou = false;
 
         while (saida != 0) {
-            System.out.println("Digite o ID da turma que deseja Alterar");
-            idTurma = lerTeclado.next();
+            System.out.println("Digite o ID da aluno que deseja Alterar");
+            idAluno = lerTeclado.next();
 
             try {
-                Integer.parseInt(idTurma);
+                Integer.parseInt(idAluno);
                 saida = 0;
                 break;
             } catch (NumberFormatException e) {
@@ -161,10 +164,10 @@ public class TurmaRotinas {
             }
         }
 
-        for (int index = 0; index < turmas.size(); index++) {
-            if (turmas.get(index).getIdTurma() == Integer.parseInt(idTurma)) {
+        for (int index = 0; index < alunos.size(); index++) {
+            if (alunos.get(index).getIdAluno() == Integer.parseInt(idAluno)) {
                 System.out.println("\n*********************************************");
-                imprimeTurma(turmas.get(index));
+                imprimeAluno(alunos.get(index));
                 System.out.println("*********************************************\n");
                 encontrou = true;
                 entrarNovosDados(index);
@@ -172,38 +175,39 @@ public class TurmaRotinas {
             }
         }
         if (!encontrou) {
-            System.out.println("Turma não encontrada!\n");
+            System.out.println("Aluno não encontrado!\n");
         }
     }
 
     static void entrarNovosDados(int index) {
         String nome = "";
-        String sigla = "";
+        String cpf = "";
 
         lerTeclado.nextLine();
 
-        System.out.println("Nome da Turma: ");
+        System.out.println("Nome da Aluno: ");
         nome = lerTeclado.nextLine();
 
-        System.out.println("Sigla:");
-        sigla = lerTeclado.nextLine();
+        System.out.println("CPF:");
+        cpf = lerTeclado.nextLine();
 
-        if (sigla.length() > 3) {
-            System.out.println("Sigla não deve ser maior do que três caracteres ");
-        } else {
-            turmas.get(index).setNomeTurma(nome);
-            turmas.get(index).setSiglaTurma(sigla.toUpperCase());
-            System.out.println("\nTurma Alterada com sucesso!\n");
+        try {
+            Integer.parseInt(cpf);
+            alunos.get(index).setNome(nome);
+            alunos.get(index).setCpf(cpf.toUpperCase());
+            System.out.println("\nAluno Alterado com sucesso!\n");
+        } catch (NumberFormatException e) {
+            System.out.println("CPF deve conter apenas números");
         }
     }
 
-    static void excluiTurma() {
+    static void excluiAluno() {
         String matricula = "";
         int saida = 777;
         boolean encontrou = false;
 
         while (saida != 0) {
-            System.out.println("Digite o ID da Turma que deseja Excluir");
+            System.out.println("Digite o ID do Aluno que deseja Excluir");
             matricula = lerTeclado.next();
 
             try {
@@ -211,39 +215,39 @@ public class TurmaRotinas {
                 saida = 0;
                 break;
             } catch (NumberFormatException e) {
-                System.out.println("Id da Turma deve ser numérico!");
+                System.out.println("Id da Aluno deve ser numérico!");
             }
         }
 
-        for (int index = 0; index < turmas.size(); index++) {
-            if (turmas.get(index).getIdTurma() == Integer.parseInt(matricula)) {
+        for (int index = 0; index < alunos.size(); index++) {
+            if (alunos.get(index).getIdAluno() == Integer.parseInt(matricula)) {
                 System.out.println("\n*********************************************");
-                imprimeTurma(turmas.get(index));
+                imprimeAluno(alunos.get(index));
                 System.out.println("*********************************************\n");
                 encontrou = true;
-                turmas.remove(index);
-                System.out.println("Turma Excluida com sucesso!");
+                alunos.remove(index);
+                System.out.println("Aluno Excluido com sucesso!");
                 break;
             }
         }
         if (!encontrou) {
-            System.out.println("Turma não encontrada!\n");
+            System.out.println("Aluno não encontrado!\n");
         }
     }
 
-    static void listaTurmas() {
+    static void listaAlunos() {
         int index = 0;
         System.out.println("\n*********************************************");
-        while (index < turmas.size()) {
-            imprimeTurma(turmas.get(index));
+        while (index < alunos.size()) {
+            imprimeAluno(alunos.get(index));
             index = index + 1;
         }
         System.out.print("*********************************************\n");
     }
 
-    static void imprimeTurma(Turma turma) {
-        System.out.println("Id Turma: " + turma.getIdTurma());
-        System.out.println("Nome Turma: " + turma.getNomeTurma());
-        System.out.println("Endereço: " + turma.getSiglaTurma() + "\n");
+    static void imprimeAluno(Aluno aluno) {
+        System.out.println("Id Aluno: " + aluno.getIdAluno());
+        System.out.println("Nome Aluno: " + aluno.getNome());
+        System.out.println("CPF: " + aluno.getCpf() + "\n");
     }
 }
