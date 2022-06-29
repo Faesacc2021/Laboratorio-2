@@ -27,7 +27,7 @@ public class TurmaRotinas {
 
         while (continuar != 0) {
 
-            System.out.println("Menu Turma");
+            System.out.println("\nMenu Turma");
             System.out.println("1 - Incluir");
             System.out.println("2 - Alterar");
             System.out.println("3 - Excluir");

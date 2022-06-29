@@ -30,7 +30,7 @@ public class ProfessorRotinas {
 
         while (continuar != 0) {
 
-            System.out.println("Menu Professor");
+            System.out.println("\nMenu Professor");
             System.out.println("1 - Incluir");
             System.out.println("2 - Alterar");
             System.out.println("3 - Excluir");

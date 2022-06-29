@@ -29,7 +29,7 @@ public class AlunosRotinas {
 
         while (continuar != 0) {
 
-            System.out.println("Menu Aluno");
+            System.out.println("\nMenu Aluno");
             System.out.println("1 - Incluir");
             System.out.println("2 - Alterar");
             System.out.println("3 - Excluir");

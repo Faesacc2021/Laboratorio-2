@@ -11,7 +11,7 @@ import java.util.List;
 
 public class TurmaAlunoFiles {
     static ArrayList<TurmaAluno> turmaAlunos = new ArrayList<TurmaAluno>();
-    static Path path = Paths.get( PathFilesTxt.pathFilesTxt + "turma.txt");
+    static Path path = Paths.get( PathFilesTxt.pathFilesTxt + "turmaAluno.txt");
 
     public static ArrayList<TurmaAluno> readTurmaAlunos() throws IOException {
         List<String> linhas = Files.readAllLines(path);

@@ -2,6 +2,7 @@ import aluno.AlunosRotinas;
 import professor.ProfessorRotinas;
 import turma.Turma;
 import turma.TurmaRotinas;
+import turmaAluno.TurmaAlunoRotinas;
 
 import java.util.Scanner;
 
@@ -19,7 +20,7 @@ public class PrincipalMenu {
 
             while (continuar != 0) {
     
-                System.out.println("Escolha uma opção");
+                System.out.println("\nEscolha uma opção");
                 System.out.println("1 - Acessar Cadastros");
                 System.out.println("2 - Operações");
                 System.out.println("3 - Relatórios");
@@ -57,7 +58,7 @@ public class PrincipalMenu {
             int valorMenu = 0;
             while (continuar != 0) {
     
-                System.out.println("Escolha um Cadastro");
+                System.out.println("\nEscolha um Cadastro");
                 System.out.println("1 - Professor");
                 System.out.println("2 - Alunos");
                 System.out.println("3 - Turmas");
@@ -97,9 +98,9 @@ public class PrincipalMenu {
 
             while (continuar != 0) {
 
-                System.out.println("O que deseja fazer");
-                System.out.println("1 - Associar Turma x Aluno");
-                System.out.println("2 - Associar Turma x Professor");
+                System.out.println("\nO que deseja fazer ?");
+                System.out.println("1 - Turma x Aluno");
+                System.out.println("2 - Turma x Professor");
                 System.out.println("0 - Voltar para menu principal");
                 entrada = lerTeclado.next();
 
@@ -114,10 +115,10 @@ public class PrincipalMenu {
                         continuar = 0;
                         break;
                     case 1:
+                        TurmaAlunoRotinas.menuTurmaAlunos();
                         break;
                     case 2:
                         break;
-                    case 3:
                     default:
                         System.out.println("Opção Inválida!" );
                 }
@@ -131,7 +132,7 @@ public class PrincipalMenu {
 
             while (continuar != 0) {
 
-                System.out.println("Escolha o Relatório desejado");
+                System.out.println("\nEscolha o Relatório desejado");
                 System.out.println("1 - Professores de uma Turma");
                 System.out.println("2 - Alunos de Uma Turma");
                 System.out.println("0 - Voltar para menu principal");
