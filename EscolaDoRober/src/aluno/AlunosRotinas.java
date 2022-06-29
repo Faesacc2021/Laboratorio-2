@@ -25,7 +25,6 @@ public class AlunosRotinas {
             alunos = AlunoFiles.readAluno();
         } catch (IOException e) {
             System.out.println("Não foi possível carregar o arquivo de alunos");
-            continuar = 1;
         }
 
         while (continuar != 0) {
@@ -51,7 +50,6 @@ public class AlunosRotinas {
                         AlunoFiles.gravaAluno(alunos);
                     } catch (IOException e) {
                         System.out.println("Não foi possível gravar o arquivo de alunos");
-                        System.exit(0);
                     }
                     continuar = 0;
                     break;

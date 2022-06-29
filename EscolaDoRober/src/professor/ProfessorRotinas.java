@@ -26,7 +26,6 @@ public class ProfessorRotinas {
             professores = ProfessorFiles.readProfessor();
         } catch (IOException e) {
             System.out.println("Não foi possível carregar o arquivo de professores");
-            continuar = 1;
         }
 
         while (continuar != 0) {
@@ -52,7 +51,6 @@ public class ProfessorRotinas {
                         ProfessorFiles.gravaProfessor(professores);
                     } catch (IOException e) {
                         System.out.println("Não foi possível gravar o arquivo de professores");
-                        System.exit(0);
                     }
                     continuar = 0;
                     break;
