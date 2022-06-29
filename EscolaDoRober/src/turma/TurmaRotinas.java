@@ -23,7 +23,6 @@ public class TurmaRotinas {
             turmas = TurmaFiles.readTurma();
         } catch (IOException e) {
             System.out.println("Não foi possível carregar o arquivo de turmas");
-            continuar = 1;
         }
 
         while (continuar != 0) {
@@ -49,7 +48,6 @@ public class TurmaRotinas {
                         TurmaFiles.gravaTurma(turmas);
                     } catch (IOException e) {
                         System.out.println("Não foi possível gravar o arquivo de turmas");
-                        System.exit(0);
                     }
                     continuar = 0;
                     break;

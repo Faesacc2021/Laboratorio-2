@@ -98,8 +98,8 @@ public class PrincipalMenu {
             while (continuar != 0) {
 
                 System.out.println("O que deseja fazer");
-                System.out.println("1 - Definir Turma do Aluno");
-                System.out.println("2 - Definir Turmas do Professor");
+                System.out.println("1 - Associar Turma x Aluno");
+                System.out.println("2 - Associar Turma x Professor");
                 System.out.println("0 - Voltar para menu principal");
                 entrada = lerTeclado.next();
 
