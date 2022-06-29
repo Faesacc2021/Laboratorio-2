@@ -7,9 +7,8 @@ import turma.TurmaFiles;
 import turma.TurmaRotinas;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
@@ -41,7 +40,11 @@ TurmaAlunoRotinas {
         try {
             turmaAlunos.clear();
             turmaAlunos = TurmaAlunoFiles.readTurmaAlunos();
-            Collections.sort(turmaAlunos);
+            List<TurmaAluno> newList =
+                    turmaAlunos.stream().sorted(Comparator.comparing(TurmaAluno::getId))
+                            .collect(Collectors.toList());
+            turmaAlunos.clear();
+  
         } catch (IOException e) {
             System.out.println("Não foi possível carregar o arquivo de Turma x Alunos");
         }
