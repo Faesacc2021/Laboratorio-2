@@ -110,7 +110,7 @@ public class ProfessorRotinas {
             professor.setSetor(setor);
             professor.setData(data);
             incluirProfessor(professor);
-            System.out.println("\n\nprofessor.Professor inserido com sucesso!");
+            System.out.println("\n.Professor inserido com sucesso!\n");
         }
     }
 

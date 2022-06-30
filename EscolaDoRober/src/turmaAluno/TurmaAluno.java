@@ -13,11 +13,11 @@ public class TurmaAluno {
         this.idAluno = 0;
     }
 
-    public TurmaAluno(long id, int idAluno, int idTurma) {
+    public TurmaAluno(long id, int idTurma, int idAluno) {
         super();
         this.id = id;
-        this.idAluno = idAluno;
         this.idTurma = idTurma;
+        this.idAluno = idAluno;
     }
 
     public long getId() {

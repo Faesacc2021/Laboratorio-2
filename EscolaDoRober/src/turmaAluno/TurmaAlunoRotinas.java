@@ -16,11 +16,11 @@ import static java.lang.Long.parseLong;
 public class
 TurmaAlunoRotinas {
 
-    static ArrayList<TurmaAluno> turmaAlunos = new ArrayList<TurmaAluno>();
     static Scanner lerTeclado = new Scanner(System.in);
-
+    static ArrayList<TurmaAluno> turmaAlunos = new ArrayList<TurmaAluno>();
     static ArrayList<Turma> turmas = new ArrayList<Turma>();
     static ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+    static int turmaAnterior = 0;
 
     static void incluirTurmaAlunos(TurmaAluno turmaMaisAlunos) {
 
@@ -40,11 +40,7 @@ TurmaAlunoRotinas {
         try {
             turmaAlunos.clear();
             turmaAlunos = TurmaAlunoFiles.readTurmaAlunos();
-            List<TurmaAluno> newList =
-                    turmaAlunos.stream().sorted(Comparator.comparing(TurmaAluno::getId))
-                            .collect(Collectors.toList());
-            turmaAlunos.clear();
-  
+            ordenaArray(turmaAlunos);
         } catch (IOException e) {
             System.out.println("Não foi possível carregar o arquivo de Turma x Alunos");
         }
@@ -86,7 +82,7 @@ TurmaAlunoRotinas {
                     continuar = 0;
                     break;
                 case 1:
-                    associarTurmaAlunos();
+                     associarTurmaAlunos();
                     break;
                 case 2:
                     listaTurmaAlunos();
@@ -96,6 +92,20 @@ TurmaAlunoRotinas {
             }
         }
 
+    }
+
+    static void ordenaArray(ArrayList<TurmaAluno> arrayDesordenado) {
+        ArrayList<TurmaAluno> turmaAlunosSorted = new ArrayList<TurmaAluno>();
+        List<TurmaAluno> newList = arrayDesordenado.stream().sorted(Comparator.comparing(TurmaAluno::getId))
+                        .collect(Collectors.toList());
+        turmaAlunos.clear();
+        for (int index = 0; index < newList.size(); index++) {
+            TurmaAluno turmaAluno = new TurmaAluno();
+            turmaAluno.setId(newList.get(index).getId());
+            turmaAluno.setIdTurma(newList.get(index).getIdTurma());
+            turmaAluno.setIdAluno(newList.get(index).getIdAluno());
+            turmaAlunos.add(turmaAluno);
+        }
     }
 
     static void associarTurmaAlunos() {
@@ -109,7 +119,7 @@ TurmaAlunoRotinas {
         int sair = 777;
 
         while (sair != 0) {
-            System.out.print("Tecle <Enter> no Id para sair.\n");
+            System.out.print("Tecle < 0 > no Id para sair.\n");
             System.out.println("Digite o Id da Turma que quer associar alunos");
             idTurma = lerTeclado.nextInt();
 
@@ -183,7 +193,6 @@ TurmaAlunoRotinas {
         System.out.print("\n*****************************************************************\n");
     }
 
-    static int turmaAnterior = 0;
     static void imprimeTurmaAlunos(TurmaAluno turmaAluno) {
         if (turmaAnterior != turmaAluno.getIdTurma()){
             System.out.println("\nNome da Turma: " + consultaTurma(turmaAluno.getIdTurma()).getNomeTurma());

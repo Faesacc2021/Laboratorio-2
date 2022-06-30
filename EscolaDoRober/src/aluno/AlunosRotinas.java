@@ -106,7 +106,7 @@ public class AlunosRotinas {
             aluno.setNome(nome);
             aluno.setCpf(cpf.toUpperCase());
             incluirAluno(aluno);
-            System.out.println("\n\nAluno inserido com sucesso!");
+            System.out.println("\nAluno inserido com sucesso!\n");
         }
     }
 

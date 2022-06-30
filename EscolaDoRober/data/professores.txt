@@ -1,6 +1,2 @@
-1-Nome Trocado-Rua Oceano-BEA-11/11/2011
-3-Alemãozinho Blauth-Rus Petrolino 210-casa 14-08/04/2002
-8-Maria Benedita Madalena-Rua das maldades 328-norte C-20/07/2022
-16-Cidadão kany-Ney Work Vilagge Park-Sul-29/07/1967
-6-franz Blauth-petrolino-casa 14-01/06/1967
-7-Novo Aluno-Novo Endereço-Novo Setor-020202
+1-Rober-Ladeira da Faesa 123-Tecnologia-01/01/2000
+2-Renata-Av. Marechal Campos-Estrutura de Dados-01/05/2005
